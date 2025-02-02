@@ -13,8 +13,8 @@ interface MembersDao {
     fun getAll(): List<Members>
 
     @Insert
-    fun BookInsert(member: Members)
+    fun MemberInsert(member: Members)
 
     @Delete
-    fun BookDelete(member: Members)
+    fun MemberDelete(member: Members)
 }

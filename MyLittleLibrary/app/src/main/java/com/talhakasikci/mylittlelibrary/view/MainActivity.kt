@@ -21,9 +21,5 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun GoNext(view: View) {
-        val intent = Intent(this, AddBook::class.java)
-        startActivity(intent)
-    }
 
 }
