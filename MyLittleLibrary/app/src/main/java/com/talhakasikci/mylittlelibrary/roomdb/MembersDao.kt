@@ -1,5 +1,6 @@
 package com.talhakasikci.mylittlelibrary.roomdb
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -10,11 +11,13 @@ import com.talhakasikci.mylittlelibrary.model.Members
 @Dao
 interface MembersDao {
     @Query("Select * from Members")
-    fun getAll(): List<Members>
+    fun getAll(): LiveData<List<Members>>
+
+
 
     @Insert
-    fun MemberInsert(member: Members)
+    suspend fun MemberInsert(member: Members)
 
     @Delete
-    fun MemberDelete(member: Members)
+    suspend fun MemberDelete(member: Members)
 }

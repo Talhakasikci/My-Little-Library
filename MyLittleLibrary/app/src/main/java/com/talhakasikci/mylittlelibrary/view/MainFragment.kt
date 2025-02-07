@@ -36,7 +36,7 @@ class MainFragment : Fragment() {
         }
 
         binding.GoToAddMember.setOnClickListener {
-            val action = MainFragmentDirections.actionMainFragmentToAddMemberFragment()
+            val action = MainFragmentDirections.actionMainFragmentToMembersFragment()
             Navigation.findNavController(it).navigate(action)
         }
     }

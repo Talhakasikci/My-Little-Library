@@ -15,15 +15,16 @@
         <action
             android:id="@+id/action_mainFragment_to_addBookFragment"
             app:destination="@id/addBookFragment" />
-        <action
-            android:id="@+id/action_mainFragment_to_addMemberFragment"
-            app:destination="@id/addMemberFragment" />
     </fragment>
     <fragment
         android:id="@+id/membersFragment"
         android:name="com.talhakasikci.mylittlelibrary.view.MembersFragment"
         android:label="fragment_members"
-        tools:layout="@layout/fragment_members" />
+        tools:layout="@layout/fragment_members" >
+        <action
+            android:id="@+id/action_membersFragment_to_addMemberFragment"
+            app:destination="@id/addMemberFragment" />
+    </fragment>
     <fragment
         android:id="@+id/addBookFragment"
         android:name="com.talhakasikci.mylittlelibrary.view.AddBookFragment"
