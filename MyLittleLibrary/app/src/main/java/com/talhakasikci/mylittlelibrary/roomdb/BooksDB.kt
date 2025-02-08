@@ -10,7 +10,7 @@ import com.talhakasikci.mylittlelibrary.model.BookTypes
 import com.talhakasikci.mylittlelibrary.model.Books
 import com.talhakasikci.mylittlelibrary.model.Members
 
-@Database(entities = [Books::class, Authors::class,Members::class, BookTypes::class], version = 2)
+@Database(entities = [Books::class, Authors::class,Members::class, BookTypes::class], version = 3)
 abstract class BooksDB : RoomDatabase() {
     abstract fun BooksDao(): BooksDao
     abstract fun AuthorsDao(): AuthorsDao

@@ -13,6 +13,12 @@
             android:id="@+id/action_mainFragment_to_membersFragment"
             app:destination="@id/membersFragment" />
         <action
+            android:id="@+id/action_mainFragment_to_booksFragment"
+            app:destination="@id/booksFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_addMemberFragment"
+            app:destination="@id/addMemberFragment" />
+        <action
             android:id="@+id/action_mainFragment_to_addBookFragment"
             app:destination="@id/addBookFragment" />
     </fragment>
@@ -35,4 +41,12 @@
         android:name="com.talhakasikci.mylittlelibrary.view.AddMemberFragment"
         android:label="fragment_add_member"
         tools:layout="@layout/fragment_add_member" />
+    <fragment
+        android:id="@+id/booksFragment"
+        android:name="com.talhakasikci.mylittlelibrary.view.BooksFragment"
+        android:label="BooksFragment" >
+        <action
+            android:id="@+id/action_booksFragment_to_addBookFragment"
+            app:destination="@id/addBookFragment" />
+    </fragment>
 </navigation>

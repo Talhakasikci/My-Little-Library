@@ -31,7 +31,7 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.GoToAddBook.setOnClickListener {
-            val action = MainFragmentDirections.actionMainFragmentToAddBookFragment()
+            val action = MainFragmentDirections.actionMainFragmentToBooksFragment()
             Navigation.findNavController(it).navigate(action)
         }
 
