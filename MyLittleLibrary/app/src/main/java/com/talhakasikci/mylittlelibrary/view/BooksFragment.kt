@@ -20,11 +20,6 @@ class BooksFragment : Fragment() {
   private lateinit var adapter: BooksViewAdapter
   private lateinit var viewModel:BooksViewModel
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

@@ -65,25 +65,37 @@ class AddBookFragment : Fragment() {
             lifecycleScope.launch(Dispatchers.IO) {
                 try {
                     // Yeni yazar ve tür nesnelerini oluştur
-                    val author = Authors(
-                        Author_name = binding.AuthorName.text.toString(),
-                        Author_surname = binding.authorSurname.text.toString()
-                    )
-                    val type = BookTypes(
-                        Type = binding.BookType.text.toString()
-                    )
+                    val AuthorName = binding.AuthorName.text.toString()
+                    val AuthorSurname = binding.authorSurname.text.toString()
+                    val BookType = binding.BookType.text.toString()
 
-                    // Yazar ve türü veritabanına ekle ve ID'lerini al
-                    val authorId = authorsDao.authorInsert(author) // Geri dönen ID'yi al
-                    val typeId = typeDao.typeInsert(type) // Geri dönen ID'yi al
+                    var authorID = authorsDao.getAuthorID(AuthorName,AuthorSurname)
+                    if(authorID == null){
+                        val author = Authors(
+                            Author_name = AuthorName,
+                            Author_surname = AuthorSurname
+                        )
+                        authorID = authorsDao.authorInsert(author).toInt()
+                    }
+
+                    var bookType = typeDao.getTypeId(BookType)
+                    if(bookType==null){
+                        val type = BookTypes(
+                            Type = binding.BookType.text.toString()
+                        )
+                        bookType = typeDao.typeInsert(type).toLong()
+                    }
+
+
+
 
                     // Yeni kitap nesnesini oluştur
                     val book = Books(
-                        Author_id = authorId.toInt(),
+                        Author_id = authorID.toString().toInt(),
                         Book_name = binding.BookName.text.toString(),
                         Book_year = binding.BookYear.text.toString().toInt(),
                         ISBN = binding.ISBNnumber.text.toString().toLong(),
-                        BookType = typeId.toInt()
+                        BookType = bookType.toInt()
                     )
 
                     // Kitabı veritabanına ekle
@@ -102,4 +114,5 @@ class AddBookFragment : Fragment() {
         }
 
     }
+    
 }

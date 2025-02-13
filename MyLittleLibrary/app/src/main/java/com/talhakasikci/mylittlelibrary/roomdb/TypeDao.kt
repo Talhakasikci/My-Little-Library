@@ -12,6 +12,8 @@ interface TypeDao {
 
     @Query("Select * from BookTypes")
     fun getAll(): List<BookTypes>
+    @Query("select Type_id from BookTypes where Type =:Type")
+    fun getTypeId(Type:String):Long?
 
     @Insert
     suspend fun typeInsert(type: BookTypes):Long

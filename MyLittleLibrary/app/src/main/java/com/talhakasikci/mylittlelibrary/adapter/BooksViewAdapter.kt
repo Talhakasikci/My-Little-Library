@@ -36,6 +36,7 @@ class BooksViewAdapter(): RecyclerView.Adapter<BooksViewAdapter.BooksListViewHol
 
         if (booksList.isEmpty()) {
             Log.e("BooksViewAdapter", "RecyclerView için veri boş!")
+            return
         }
         val book = booksList[position]
         holder.BookId.text = book.Book_Id.toString()
