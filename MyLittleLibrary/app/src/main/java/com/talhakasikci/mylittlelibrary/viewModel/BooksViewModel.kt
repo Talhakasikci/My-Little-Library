@@ -27,4 +27,13 @@ class BooksViewModel(application:Application):AndroidViewModel(application) {
             booksDao.BookDelete(book)
         }
     }
+    fun getBookDetails(bookId: Int): LiveData<List<BooksWithDetails>> {
+        return booksDao.getBookDetails(bookId)
+    }
+
+    fun BookDeleteWithId(bookId:Int){
+        viewModelScope.launch(Dispatchers.IO) {
+            booksDao.BookDeleteWithId(bookId)
+        }
+    }
 }

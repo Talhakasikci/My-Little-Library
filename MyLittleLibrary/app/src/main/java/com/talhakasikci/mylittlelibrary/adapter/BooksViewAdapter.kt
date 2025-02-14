@@ -5,13 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.talhakasikci.mylittlelibrary.R
 import com.talhakasikci.mylittlelibrary.model.Books
 import com.talhakasikci.mylittlelibrary.model.BooksWithDetails
 
-class BooksViewAdapter(): RecyclerView.Adapter<BooksViewAdapter.BooksListViewHolder>() {
+class BooksViewAdapter(private var onItemClick:(Int)->(Unit)): RecyclerView.Adapter<BooksViewAdapter.BooksListViewHolder>() {
     private var booksList = emptyList<BooksWithDetails>()
 
     class BooksListViewHolder (itemView: View):RecyclerView.ViewHolder(itemView){
@@ -19,6 +20,8 @@ class BooksViewAdapter(): RecyclerView.Adapter<BooksViewAdapter.BooksListViewHol
         val AuthorName:TextView = itemView.findViewById(R.id.tvAuthorName)
         val AuthorSurname:TextView = itemView.findViewById(R.id.tvAuthorSurname)
         val BookId:TextView = itemView.findViewById(R.id.tvNumberBook)
+
+
 }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BooksListViewHolder {
         val itemView = LayoutInflater.from(parent.context)
@@ -43,6 +46,10 @@ class BooksViewAdapter(): RecyclerView.Adapter<BooksViewAdapter.BooksListViewHol
         holder.BookName.text = book.Book_name
         holder.AuthorName.text = book.Author_name
         holder.AuthorSurname.text = book.Author_surname
+        holder.itemView.setOnClickListener {
+            Toast.makeText(holder.itemView.context,"click ${book.Book_Id}",Toast.LENGTH_LONG).show()
+            onItemClick(book.Book_Id)
+        }
     }
 
     fun setBooks(newBooks:List<BooksWithDetails>){

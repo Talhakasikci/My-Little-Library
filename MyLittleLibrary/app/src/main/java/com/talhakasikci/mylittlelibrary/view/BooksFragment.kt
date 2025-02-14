@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.talhakasikci.mylittlelibrary.R
@@ -29,9 +30,14 @@ class BooksFragment : Fragment() {
         binding = FragmentBooksBinding.inflate(inflater,container,false)
 
         val recyclerView:RecyclerView = binding.rvBooks
-        adapter = BooksViewAdapter()
+        adapter = BooksViewAdapter{bookId->
+            val action = BooksFragmentDirections.actionBooksFragmentToBookDetailsFragment(bookId)
+            findNavController().navigate(action)
+
+        }
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = adapter
+
 
         viewModel = ViewModelProvider(this).get(BooksViewModel::class.java)
 
