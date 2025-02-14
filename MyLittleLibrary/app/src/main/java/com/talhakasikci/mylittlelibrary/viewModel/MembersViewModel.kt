@@ -27,4 +27,9 @@ class MembersViewModel(application: Application) : AndroidViewModel(application)
             membersDao.MemberDelete(member)
         }
     }
+    fun membersDeleteWithId(id:Int){
+        viewModelScope.launch(Dispatchers.IO){
+            membersDao.deleteMemberWithId(id)
+        }
+    }
 }

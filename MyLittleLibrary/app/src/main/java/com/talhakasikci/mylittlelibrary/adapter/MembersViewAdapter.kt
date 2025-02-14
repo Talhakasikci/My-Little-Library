@@ -8,9 +8,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.talhakasikci.mylittlelibrary.R
 import com.talhakasikci.mylittlelibrary.model.Members
+import com.talhakasikci.mylittlelibrary.viewModel.BooksViewModel
 import com.talhakasikci.mylittlelibrary.viewModel.MembersViewModel
 
-class MembersViewAdapter() :RecyclerView.Adapter<MembersViewAdapter.MembersListViewHolder>() {
+class MembersViewAdapter(private val MembersViewModel: MembersViewModel) :RecyclerView.Adapter<MembersViewAdapter.MembersListViewHolder>() {
     private var members = emptyList<Members>()
 
 
@@ -20,7 +21,7 @@ class MembersViewAdapter() :RecyclerView.Adapter<MembersViewAdapter.MembersListV
         val memberSurnameTv : TextView = itemView.findViewById(R.id.tvMemberSurname)
         val memberId: TextView = itemView.findViewById(R.id.tvMemberID)
         val editImg:ImageView = itemView.findViewById(R.id.ivEditButton)
-        val deleteımg:ImageView = itemView.findViewById(R.id.ivDeleteButton)
+        val deleteimg:ImageView = itemView.findViewById(R.id.ivDeleteButton)
 
 
     }
@@ -43,6 +44,9 @@ class MembersViewAdapter() :RecyclerView.Adapter<MembersViewAdapter.MembersListV
         holder.memberNameTv.text = member.First_Name
         holder.memberSurnameTv.text = member.Last_Name
         holder.memberId.text = member.MemberID.toString()
+        holder.deleteimg.setOnClickListener {
+            MembersViewModel.membersDeleteWithId(member.id)
+        }
     }
     fun setMembers(newMember:List<Members>){
         members = newMember

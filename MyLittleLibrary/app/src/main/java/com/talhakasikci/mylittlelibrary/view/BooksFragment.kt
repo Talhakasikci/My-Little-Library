@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
@@ -20,6 +21,7 @@ class BooksFragment : Fragment() {
   private lateinit var binding: FragmentBooksBinding
   private lateinit var adapter: BooksViewAdapter
   private lateinit var viewModel:BooksViewModel
+    private val bookViewModel: BooksViewModel by viewModels()
 
 
     override fun onCreateView(
@@ -30,11 +32,12 @@ class BooksFragment : Fragment() {
         binding = FragmentBooksBinding.inflate(inflater,container,false)
 
         val recyclerView:RecyclerView = binding.rvBooks
-        adapter = BooksViewAdapter{bookId->
-            val action = BooksFragmentDirections.actionBooksFragmentToBookDetailsFragment(bookId)
-            findNavController().navigate(action)
-
-        }
+        adapter = BooksViewAdapter(
+            onItemClick = { bookId ->
+                // Handle item click
+            },
+            bookViewModel = bookViewModel // ViewModel'i adapter'a geçiyoruz
+        )
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = adapter
 

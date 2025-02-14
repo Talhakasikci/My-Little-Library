@@ -5,7 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -18,6 +21,7 @@ class MembersFragment : Fragment() {
     private lateinit var binding:FragmentMembersBinding
     private lateinit var membersViewModel:MembersViewModel
     private lateinit var adapter:MembersViewAdapter
+    private val memberViewModel:MembersViewModel by viewModels()
 
 
     override fun onCreateView(
@@ -29,7 +33,7 @@ class MembersFragment : Fragment() {
 
 
         val recyclerView:RecyclerView = binding.rvMember
-        adapter = MembersViewAdapter()
+        adapter = MembersViewAdapter(MembersViewModel = memberViewModel)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = adapter
 
