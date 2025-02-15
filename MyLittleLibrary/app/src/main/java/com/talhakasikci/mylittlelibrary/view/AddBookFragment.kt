@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.compose.ui.text.toUpperCase
 import androidx.lifecycle.lifecycleScope
 import androidx.room.Room
 import com.talhakasikci.mylittlelibrary.R
@@ -19,6 +20,7 @@ import com.talhakasikci.mylittlelibrary.roomdb.BooksDao
 import com.talhakasikci.mylittlelibrary.roomdb.TypeDao
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.util.Locale
 
 
 class AddBookFragment : Fragment() {
@@ -65,8 +67,8 @@ class AddBookFragment : Fragment() {
             lifecycleScope.launch(Dispatchers.IO) {
                 try {
                     // Yeni yazar ve tür nesnelerini oluştur
-                    val AuthorName = binding.AuthorName.text.toString()
-                    val AuthorSurname = binding.authorSurname.text.toString()
+                    val AuthorName = binding.AuthorName.text.toString().uppercase()
+                    val AuthorSurname = binding.authorSurname.text.toString().uppercase()
                     val BookType = binding.BookType.text.toString()
 
                     var authorID = authorsDao.getAuthorID(AuthorName,AuthorSurname)
@@ -81,7 +83,7 @@ class AddBookFragment : Fragment() {
                     var bookType = typeDao.getTypeId(BookType)
                     if(bookType==null){
                         val type = BookTypes(
-                            Type = binding.BookType.text.toString()
+                            Type = binding.BookType.text.toString().uppercase()
                         )
                         bookType = typeDao.typeInsert(type).toLong()
                     }
@@ -114,5 +116,6 @@ class AddBookFragment : Fragment() {
         }
 
     }
+
     
 }

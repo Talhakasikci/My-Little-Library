@@ -32,4 +32,10 @@ class MembersViewModel(application: Application) : AndroidViewModel(application)
             membersDao.deleteMemberWithId(id)
         }
     }
+
+    suspend fun getMemberWithID(id:Long): Int? {
+       return membersDao.getMember(id)
+
+
+    }
 }

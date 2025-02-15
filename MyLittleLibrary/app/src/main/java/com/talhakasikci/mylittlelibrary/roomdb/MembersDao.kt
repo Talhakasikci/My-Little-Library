@@ -13,6 +13,9 @@ interface MembersDao {
     @Query("Select * from Members")
     fun getAll(): LiveData<List<Members>>
 
+    @Query("select id from Members where MemberID=:memberId ")
+    fun getMember(memberId : Long):Int?
+
     @Query("delete from Members where id=:id")
     fun deleteMemberWithId(id:Int)
 
