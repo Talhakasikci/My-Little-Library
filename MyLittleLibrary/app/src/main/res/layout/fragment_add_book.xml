@@ -6,7 +6,8 @@ xmlns:tools="http://schemas.android.com/tools"
 android:id="@+id/main"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-tools:context=".view.AddBook">
+tools:context=".view.AddBook"
+    android:background="@color/lightGreen0">
 
 <EditText
     android:id="@+id/BookName"

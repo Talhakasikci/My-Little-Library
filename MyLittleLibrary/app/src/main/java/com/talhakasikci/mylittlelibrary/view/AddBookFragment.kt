@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.compose.ui.text.toUpperCase
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.lifecycleScope
 import androidx.room.Room
 import com.talhakasikci.mylittlelibrary.R
@@ -18,6 +20,7 @@ import com.talhakasikci.mylittlelibrary.roomdb.AuthorsDao
 import com.talhakasikci.mylittlelibrary.roomdb.BooksDB
 import com.talhakasikci.mylittlelibrary.roomdb.BooksDao
 import com.talhakasikci.mylittlelibrary.roomdb.TypeDao
+import com.talhakasikci.mylittlelibrary.viewModel.BooksViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.util.Locale
@@ -30,6 +33,7 @@ class AddBookFragment : Fragment() {
     private lateinit var bookDao: BooksDao
     private lateinit var authorsDao: AuthorsDao
     private lateinit var typeDao: TypeDao
+    private val viewModel:BooksViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -101,7 +105,7 @@ class AddBookFragment : Fragment() {
                     )
 
                     // Kitabı veritabanına ekle
-                    bookDao.BookInsert(book)
+                    viewModel.insert(book)
 
                     Log.d("RoomTest", "Kitap eklendi: $book")
 

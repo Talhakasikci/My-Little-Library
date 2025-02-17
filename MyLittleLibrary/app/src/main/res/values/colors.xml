@@ -2,4 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name = "acikMavi">#BBDEFB</color>
+    <color name = "lightIndigo">#9FA8DA</color>
+    <color name = "lightDeepPurple">#B39DDB</color>
+    <color name="lightGreen0">#DCEDC8</color>
 </resources>

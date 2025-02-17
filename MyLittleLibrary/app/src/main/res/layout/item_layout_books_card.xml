@@ -1,18 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="8dp"
+    app:cardBackgroundColor="@color/acikMavi"
+    android:id="@+id/booksCardView">
+
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="10dp"
     android:layout_margin="10dp"
-    android:background="?attr/selectableItemBackground"
     android:clickable="true"
     android:focusable="false"
     android:focusableInTouchMode="false"
     android:descendantFocusability="blocksDescendants"
-    android:id="@+id/cardView">
+    android:id="@+id/cardView"
+    >
 
     <!-- Book Number Text -->
     <TextView
@@ -22,7 +33,8 @@
         android:text="1"
         android:textSize="30sp"
         android:gravity="center"
-        android:layout_marginEnd="10dp" />
+        android:layout_marginEnd="10dp"
+        android:textColor="@color/black"/>
 
     <!-- Book Name and Author Info -->
     <LinearLayout
@@ -42,7 +54,8 @@
                 android:layout_height="wrap_content"
                 android:text="beyaz diş"
                 android:textSize="20sp"
-                android:layout_marginTop="4dp"/>
+                android:layout_marginTop="4dp"
+                android:textColor="@color/black"/>
         </LinearLayout>
 
         <LinearLayout
@@ -54,14 +67,16 @@
                 android:layout_height="wrap_content"
                 android:text="jack"
                 android:textSize="16sp"
-                android:layout_marginEnd="5dp"/>
+                android:layout_marginEnd="5dp"
+                android:textColor="@color/black"/>
 
             <TextView
                 android:id="@+id/tvAuthorSurname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="London"
-                android:textSize="16sp"/>
+                android:textSize="16sp"
+                android:textColor="@color/black"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -92,3 +107,5 @@
             android:focusable="true"/>
     </LinearLayout>
 </LinearLayout>
+
+</androidx.cardview.widget.CardView>

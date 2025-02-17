@@ -30,12 +30,12 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.GoToAddBook.setOnClickListener {
+        binding.booksCardView.setOnClickListener {
             val action = MainFragmentDirections.actionMainFragmentToBooksFragment()
             Navigation.findNavController(it).navigate(action)
         }
 
-        binding.GoToAddMember.setOnClickListener {
+        binding.membersCardView.setOnClickListener {
             val action = MainFragmentDirections.actionMainFragmentToMembersFragment()
             Navigation.findNavController(it).navigate(action)
         }
