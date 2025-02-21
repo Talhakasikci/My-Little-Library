@@ -16,11 +16,11 @@
             android:id="@+id/action_mainFragment_to_booksFragment"
             app:destination="@id/booksFragment" />
         <action
-            android:id="@+id/action_mainFragment_to_addMemberFragment"
-            app:destination="@id/addMemberFragment" />
-        <action
             android:id="@+id/action_mainFragment_to_addBookFragment"
             app:destination="@id/addBookFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_rentFragment"
+            app:destination="@id/rentFragment" />
     </fragment>
     <fragment
         android:id="@+id/membersFragment"
@@ -30,6 +30,9 @@
         <action
             android:id="@+id/action_membersFragment_to_addMemberFragment"
             app:destination="@id/addMemberFragment" />
+        <action
+            android:id="@+id/action_membersFragment_to_memberDetailsFragment"
+            app:destination="@id/memberDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/addBookFragment"
@@ -61,4 +64,18 @@
             android:name="bookID"
             app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/memberDetailsFragment"
+        android:name="com.talhakasikci.mylittlelibrary.view.MemberDetailsFragment"
+        android:label="fragment_member_details"
+        tools:layout="@layout/fragment_member_details" >
+        <argument
+            android:name="memberId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/rentFragment"
+        android:name="com.talhakasikci.mylittlelibrary.view.RentFragment"
+        android:label="fragment_rent"
+        tools:layout="@layout/fragment_rent" />
 </navigation>

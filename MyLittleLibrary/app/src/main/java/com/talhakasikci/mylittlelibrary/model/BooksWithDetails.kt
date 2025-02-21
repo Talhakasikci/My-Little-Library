@@ -7,5 +7,6 @@ data class BooksWithDetails(
     val ISBN: Long,
     val Author_name: String,
     val Author_surname: String,
-    val Type: String? // Kitap türü NULL olabilir, bu yüzden String?
+    val Type: String? ,// Kitap türü NULL olabilir, bu yüzden String?
+    var available:Boolean
 )

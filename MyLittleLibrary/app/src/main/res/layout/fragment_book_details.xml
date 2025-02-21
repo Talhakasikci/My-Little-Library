@@ -60,6 +60,17 @@
         app:layout_constraintStart_toStartOf="@+id/ISBNInfoDP"
         app:layout_constraintTop_toBottomOf="@+id/ISBNInfoDP" />
 
+    <TextView
+        android:id="@+id/BookAvailableDetailTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="available"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@+id/BookTypeDP"
+        app:layout_constraintTop_toBottomOf="@+id/BookTypeDP" />
+        " />
+
     <Button
         android:id="@+id/DeleteButtonDP"
         android:layout_width="wrap_content"

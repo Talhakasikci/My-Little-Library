@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.talhakasikci.mylittlelibrary.R
@@ -33,7 +34,12 @@ class MembersFragment : Fragment() {
 
 
         val recyclerView:RecyclerView = binding.rvMember
-        adapter = MembersViewAdapter(MembersViewModel = memberViewModel)
+        adapter = MembersViewAdapter(onItemClicked = {memberId->
+          val action = MembersFragmentDirections.actionMembersFragmentToMemberDetailsFragment(memberId)
+          findNavController().navigate(action)
+
+        }
+            ,MembersViewModel = memberViewModel)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = adapter
 

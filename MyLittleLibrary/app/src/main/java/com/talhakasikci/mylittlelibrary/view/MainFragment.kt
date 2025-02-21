@@ -39,6 +39,11 @@ class MainFragment : Fragment() {
             val action = MainFragmentDirections.actionMainFragmentToMembersFragment()
             Navigation.findNavController(it).navigate(action)
         }
+
+        binding.rentalCardView.setOnClickListener{
+            val action = MainFragmentDirections.actionMainFragmentToRentFragment()
+            Navigation.findNavController(it).navigate(action)
+        }
     }
 
 }

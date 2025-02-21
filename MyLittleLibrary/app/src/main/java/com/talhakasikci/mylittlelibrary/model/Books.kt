@@ -3,6 +3,7 @@ package com.talhakasikci.mylittlelibrary.model
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
+import androidx.room.Index
 import androidx.room.PrimaryKey
 
 @Entity(
@@ -19,7 +20,8 @@ import androidx.room.PrimaryKey
 
         )
 
-    ]
+    ],
+    indices = [Index(value = ["ISBN"], unique = true)]
 )
 data class Books(
     @PrimaryKey(autoGenerate = true)
@@ -31,6 +33,9 @@ data class Books(
 
     @ColumnInfo(name = "ISBN")
     val ISBN: Long,
+
+    @ColumnInfo(name="available", defaultValue = "1")
+    var available:Boolean,
 
     val Author_id:Int,
     val BookType:Int?

@@ -101,7 +101,8 @@ class AddBookFragment : Fragment() {
                         Book_name = binding.BookName.text.toString(),
                         Book_year = binding.BookYear.text.toString().toInt(),
                         ISBN = binding.ISBNnumber.text.toString().toLong(),
-                        BookType = bookType.toInt()
+                        BookType = bookType.toInt(),
+                        available = true
                     )
 
                     // Kitabı veritabanına ekle

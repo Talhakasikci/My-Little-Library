@@ -9,7 +9,11 @@
     app:cardCornerRadius="20dp"
     app:cardElevation="8dp"
     app:cardBackgroundColor="@color/acikMavi"
-    android:id="@+id/booksCardView">
+    android:id="@+id/booksCardView"
+    android:clickable="true"
+    android:focusable="false"
+    android:focusableInTouchMode="false"
+    android:descendantFocusability="blocksDescendants">
 
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -18,10 +22,6 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:layout_margin="10dp"
-    android:clickable="true"
-    android:focusable="false"
-    android:focusableInTouchMode="false"
-    android:descendantFocusability="blocksDescendants"
     android:id="@+id/cardView"
     >
 

@@ -34,7 +34,9 @@ class BooksFragment : Fragment() {
         val recyclerView:RecyclerView = binding.rvBooks
         adapter = BooksViewAdapter(
             onItemClick = { bookId ->
-                // Handle item click
+                // Handle item clic
+                          val action = BooksFragmentDirections.actionBooksFragmentToBookDetailsFragment(bookId)
+                findNavController().navigate(action)
             },
             bookViewModel = bookViewModel // ViewModel'i adapter'a geçiyoruz
         )

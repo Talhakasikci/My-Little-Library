@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
+import com.talhakasikci.mylittlelibrary.model.BooksWithDetails
 import com.talhakasikci.mylittlelibrary.model.Members
 import com.talhakasikci.mylittlelibrary.roomdb.BooksDB
 import com.talhakasikci.mylittlelibrary.roomdb.MembersDao
@@ -37,5 +38,8 @@ class MembersViewModel(application: Application) : AndroidViewModel(application)
        return membersDao.getMember(id)
 
 
+    }
+    fun getMemberDetails(id:Int):LiveData<List<Members>>{
+        return membersDao.getMemberDetails(id)
     }
 }

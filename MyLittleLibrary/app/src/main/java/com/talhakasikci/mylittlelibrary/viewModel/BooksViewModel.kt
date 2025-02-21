@@ -14,6 +14,7 @@ import kotlinx.coroutines.launch
 
 class BooksViewModel(application:Application):AndroidViewModel(application) {
     private val booksDao: BooksDao = BooksDB.getDatabase(application).BooksDao()
+    val availableBooks: LiveData<List<BooksWithDetails>> = booksDao.getAvailableBooks()
 
     val allBooksWithDetails : LiveData<List<BooksWithDetails>> = booksDao.getBooksWithDetails()
     fun insert(book: Books) {
@@ -36,4 +37,18 @@ class BooksViewModel(application:Application):AndroidViewModel(application) {
             booksDao.BookDeleteWithId(bookId)
         }
     }
+
+    fun rentBook(bookId: Int) {
+        viewModelScope.launch(Dispatchers.IO) {
+            booksDao.rentBook(bookId)
+        }
+    }
+
+    fun returnBook(bookId: Long) {
+        viewModelScope.launch(Dispatchers.IO) {
+            booksDao.returnBook(bookId)
+        }
+    }
+
+
 }

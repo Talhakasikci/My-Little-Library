@@ -47,6 +47,11 @@ class BookDetailsFragment : Fragment() {
                     binding.bookYearDP.text = book.Book_year.toString()
                     binding.ISBNInfoDP.text = book.ISBN.toString()
                     binding.BookTypeDP.text = book.Type
+                    if(book.available){
+                        binding.BookAvailableDetailTV.text="Available"
+                    }else{
+                        binding.BookAvailableDetailTV.text="Not Available"
+                    }
                 }
             })
 
