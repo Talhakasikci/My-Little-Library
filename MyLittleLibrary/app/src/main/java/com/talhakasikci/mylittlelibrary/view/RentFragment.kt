@@ -10,7 +10,11 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.talhakasikci.mylittlelibrary.adapter.RentalViewAdapter
 import com.talhakasikci.mylittlelibrary.databinding.FragmentRentBinding
 import com.talhakasikci.mylittlelibrary.model.Rental
 import com.talhakasikci.mylittlelibrary.viewModel.BooksViewModel
@@ -21,14 +25,30 @@ import kotlinx.coroutines.launch
 class RentFragment : Fragment() {
     private val bookviewModel: BooksViewModel by viewModels()
     private val memberviewModel: MembersViewModel by viewModels()
-    private val rentalViewModel: RentalViewModel by viewModels()
+    private lateinit var rentalViewModel: RentalViewModel
+    private val ViewModel: RentalViewModel by viewModels()
     private lateinit var binding: FragmentRentBinding
+    private lateinit var adapter: RentalViewAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentRentBinding.inflate(inflater, container, false)
+
+        val recyclerView:RecyclerView = binding.rvRents
+        adapter = RentalViewAdapter(ViewModel)
+
+        recyclerView.layoutManager=LinearLayoutManager(requireContext())
+        recyclerView.adapter = adapter
+       rentalViewModel = ViewModelProvider(this).get(RentalViewModel::class.java)
+        rentalViewModel.getAllRentalDetails().observe(viewLifecycleOwner) { rentals ->
+            rentals?.let {
+                adapter.setRentals(it)
+            }
+        }
+
+
 
         val bookMap = mutableMapOf<String, Int>()
         val autoCompleteBooks = binding.autoCompleteBooks
@@ -75,18 +95,22 @@ class RentFragment : Fragment() {
                     if (bookDetailsList.isNotEmpty()) {
                         val bookDetails = bookDetailsList[0]
                         val bookISBN = bookDetails.ISBN
+                        val isBookAvailable = bookDetails.available
+                        if(isBookAvailable){
+                            val rental = Rental(Book_Id = bookId,Member_id = memberID, Book_ISBN = bookISBN)
 
-                        val rental = Rental(Member_id = memberID, Book_ISBN = bookISBN)
+                            bookviewModel.viewModelScope.launch {
+                                bookviewModel.rentBook(bookId)
+                            }
 
-                        bookviewModel.viewModelScope.launch {
-                            bookviewModel.rentBook(bookId)
+                            rentalViewModel.addRental(rental)
+                            Toast.makeText(requireContext(), "The book has been rented successfully", Toast.LENGTH_SHORT).show()
+                        } else {
+                            Toast.makeText(requireContext(), "Book details not found", Toast.LENGTH_SHORT).show()
+                        }
                         }
 
-                        rentalViewModel.addRental(rental)
-                        Toast.makeText(requireContext(), "The book has been rented successfully", Toast.LENGTH_SHORT).show()
-                    } else {
-                        Toast.makeText(requireContext(), "Book details not found", Toast.LENGTH_SHORT).show()
-                    }
+
                 }
             } else {
                 Toast.makeText(requireContext(), "Please select a valid member/book", Toast.LENGTH_SHORT).show()

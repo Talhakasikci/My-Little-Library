@@ -5,24 +5,31 @@ import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
 @Entity(
-    foreignKeys = [ForeignKey(
-        entity = Members::class,
-        parentColumns = arrayOf("MemberID"),
-        childColumns = arrayOf("Member_id"),
-        onDelete = ForeignKey.CASCADE
-    ),
-    ForeignKey(
-        entity = Books::class,
-        parentColumns = arrayOf("ISBN"),
-        childColumns = arrayOf("Book_ISBN"),
-        onDelete = ForeignKey.CASCADE
-    )
+    foreignKeys = [
+        ForeignKey(
+            entity = Members::class,
+            parentColumns = arrayOf("MemberID"),
+            childColumns = arrayOf("Member_id"),
+            onDelete = ForeignKey.CASCADE
+        ),
+        ForeignKey(
+            entity = Books::class,
+            parentColumns = arrayOf("ISBN"),
+            childColumns = arrayOf("Book_ISBN"),
+            onDelete = ForeignKey.CASCADE
+        ),
+        ForeignKey(
+            entity = Books::class,
+            parentColumns = arrayOf("Book_Id"),
+            childColumns = arrayOf("Book_Id"),
+            onDelete = ForeignKey.CASCADE
+        )
     ]
 )
 data class Rental(
     @PrimaryKey(autoGenerate = true)
-    val Rental_id:Int=0,
-    val Member_id:Long,
-    val Book_ISBN:Long
-
+    val Rental_id: Int = 0,
+    val Book_Id: Int,
+    val Member_id: Long,
+    val Book_ISBN: Long
 )

@@ -44,7 +44,7 @@ class BooksViewModel(application:Application):AndroidViewModel(application) {
         }
     }
 
-    fun returnBook(bookId: Long) {
+    fun returnBook(bookId: Int) {
         viewModelScope.launch(Dispatchers.IO) {
             booksDao.returnBook(bookId)
         }

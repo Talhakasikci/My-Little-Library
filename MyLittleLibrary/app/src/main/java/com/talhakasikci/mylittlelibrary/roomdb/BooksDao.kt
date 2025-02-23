@@ -73,7 +73,7 @@ interface BooksDao {
     @Query("UPDATE Books SET available = 0 WHERE Book_Id = :bookid")
     suspend fun rentBook(bookid: Int)
 
-    @Query("UPDATE Books SET available = 1 WHERE ISBN = :bookISBN")
-    suspend fun returnBook(bookISBN: Long)
+    @Query("UPDATE Books SET available = 1 WHERE Book_Id = :bookId")
+    suspend fun returnBook(bookId: Int)
 
 }
