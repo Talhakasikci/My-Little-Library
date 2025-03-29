@@ -5,79 +5,81 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.BookDetailsFragment"
-    android:background="@color/lightGreen0">
+    android:background="@color/lightGreen0"
+    android:paddingStart="24dp"
+    android:paddingEnd="24dp">
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/bookNameDP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="112dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="112dp"
         android:text="Book Name"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginEnd="112dp" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/authorInfosDP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         android:text="name surname"
         android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="@+id/bookNameDP"
-        app:layout_constraintTop_toBottomOf="@+id/bookNameDP" />
+        app:layout_constraintStart_toStartOf="@id/bookNameDP"
+        app:layout_constraintTop_toBottomOf="@id/bookNameDP"
+        android:layout_marginTop="40dp" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/bookYearDP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         android:text="Year:"
         android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="@+id/authorInfosDP"
-        app:layout_constraintTop_toBottomOf="@+id/authorInfosDP" />
+        app:layout_constraintStart_toStartOf="@id/authorInfosDP"
+        app:layout_constraintTop_toBottomOf="@id/authorInfosDP"
+        android:layout_marginTop="40dp" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/ISBNInfoDP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         android:text="ISBN"
         android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="@+id/bookYearDP"
-        app:layout_constraintTop_toBottomOf="@+id/bookYearDP" />
+        app:layout_constraintStart_toStartOf="@id/bookYearDP"
+        app:layout_constraintTop_toBottomOf="@id/bookYearDP"
+        android:layout_marginTop="40dp" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/BookTypeDP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         android:text="Type"
         android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="@+id/ISBNInfoDP"
-        app:layout_constraintTop_toBottomOf="@+id/ISBNInfoDP" />
+        app:layout_constraintStart_toStartOf="@id/ISBNInfoDP"
+        app:layout_constraintTop_toBottomOf="@id/ISBNInfoDP"
+        android:layout_marginTop="40dp" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/BookAvailableDetailTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         android:text="available"
         android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="@+id/BookTypeDP"
-        app:layout_constraintTop_toBottomOf="@+id/BookTypeDP" />
-        " />
+        app:layout_constraintStart_toStartOf="@id/BookTypeDP"
+        app:layout_constraintTop_toBottomOf="@id/BookTypeDP"
+        android:layout_marginTop="40dp" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/DeleteButtonDP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
         android:text="Delete the Book"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="50dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

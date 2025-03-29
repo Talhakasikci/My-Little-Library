@@ -8,41 +8,45 @@
     tools:context=".view.RentFragment" >
 
     <LinearLayout
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:background="@color/gri"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <AutoCompleteTextView
+        <com.google.android.material.textfield.MaterialAutoCompleteTextView
             android:id="@+id/autoCompleteBooks"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:hint="Kitap Seç"
             android:inputType="text"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
-        <AutoCompleteTextView
+        <com.google.android.material.textfield.MaterialAutoCompleteTextView
             android:id="@+id/autoCompleteMember"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:hint="Üye Seç"
             android:inputType="text"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/autoCompleteBooks" />
+            app:layout_constraintTop_toBottomOf="@id/autoCompleteBooks"
+            />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/rentBookButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -51,9 +55,9 @@
             android:text="Rent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/autoCompleteMember" />
-    </LinearLayout>
+            app:layout_constraintTop_toBottomOf="@id/autoCompleteMember" />
 
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvRents"
@@ -66,6 +70,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@id/linearLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

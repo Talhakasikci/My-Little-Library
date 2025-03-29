@@ -7,7 +7,7 @@
     tools:context=".view.BookDetailsFragment"
     android:background="@color/lightGreen0">
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/memberNameTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -20,7 +20,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/memberIdTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
 
 
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/DeleteButtonDP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

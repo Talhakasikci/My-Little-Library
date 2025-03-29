@@ -49,7 +49,7 @@ class AddMemberFragment : Fragment() {
 
 
 
-        binding.AddMember.setOnClickListener {
+        binding.addMember.setOnClickListener {
             lifecycleScope.launch(Dispatchers.IO) {
                 try {
                     val memberID = binding.MemberID.text.toString().toLong()

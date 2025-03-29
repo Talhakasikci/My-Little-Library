@@ -1,114 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:id="@+id/main"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-tools:context=".view.AddBook"
-    android:background="@color/lightGreen0">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lightGreen0"
+    tools:context=".view.AddBook"
+    android:paddingStart="30dp"
+    android:paddingEnd="30dp"
+    >
 
-<EditText
-    android:id="@+id/BookName"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="50dp"
-    android:ems="10"
-    android:hint="Enter Book Name"
-    android:textColorHint="@color/black"
-    android:textColor="@color/black"
-    android:inputType="text"
-    android:minHeight="48dp"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_book_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Book Name"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="50dp">
 
-<EditText
-    android:id="@+id/AuthorName"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="20dp"
-    android:ems="10"
-    android:hint="Enter Author's name"
-    android:textColorHint="@color/black"
-    android:textColor="@color/black"
-    android:inputType="text"
-    android:minHeight="48dp"
-    app:layout_constraintEnd_toEndOf="@+id/BookName"
-    app:layout_constraintStart_toStartOf="@+id/BookName"
-    app:layout_constraintTop_toBottomOf="@+id/BookName" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/BookName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-<EditText
-    android:id="@+id/authorSurname"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="20dp"
-    android:ems="10"
-    android:hint="Enter Author's Surname"
-    android:textColorHint="@color/black"
-    android:textColor="@color/black"
-    android:inputType="text"
-    android:minHeight="48dp"
-    app:layout_constraintEnd_toEndOf="@+id/AuthorName"
-    app:layout_constraintStart_toStartOf="@+id/AuthorName"
-    app:layout_constraintTop_toBottomOf="@+id/AuthorName" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_author_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Author's Name"
+        app:layout_constraintTop_toBottomOf="@id/til_book_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp">
 
-<EditText
-    android:id="@+id/BookYear"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="20dp"
-    android:ems="10"
-    android:hint="Enter Book's year"
-    android:textColorHint="@color/black"
-    android:textColor="@color/black"
-    android:inputType="number"
-    android:minHeight="48dp"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/authorSurname" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/AuthorName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-<EditText
-    android:id="@+id/ISBNnumber"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="20dp"
-    android:ems="10"
-    android:hint="Enter ISBN number"
-    android:textColorHint="@color/black"
-    android:textColor="@color/black"
-    android:inputType="number"
-    android:minHeight="48dp"
-    app:layout_constraintEnd_toEndOf="@+id/BookYear"
-    app:layout_constraintStart_toStartOf="@+id/BookYear"
-    app:layout_constraintTop_toBottomOf="@+id/BookYear" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_author_surname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Author's Surname"
+        app:layout_constraintTop_toBottomOf="@id/til_author_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp">
 
-<EditText
-    android:id="@+id/BookType"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="20dp"
-    android:ems="10"
-    android:hint="Enter Type of the Book"
-    android:textColorHint="@color/black"
-    android:textColor="@color/black"
-    android:inputType="text"
-    android:minHeight="48dp"
-    app:layout_constraintEnd_toEndOf="@+id/ISBNnumber"
-    app:layout_constraintStart_toStartOf="@+id/ISBNnumber"
-    app:layout_constraintTop_toBottomOf="@+id/ISBNnumber"
-    tools:ignore="MissingConstraints" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/authorSurname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-<Button
-    android:id="@+id/addBook"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="33dp"
-    android:onClick="addBook"
-    android:text="Add Book"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/BookType" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_book_year"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Book's Year"
+        app:layout_constraintTop_toBottomOf="@id/til_author_surname"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/BookYear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_isbn_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter ISBN Number"
+        app:layout_constraintTop_toBottomOf="@id/til_book_year"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ISBNnumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_book_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Type of the Book"
+        app:layout_constraintTop_toBottomOf="@id/til_isbn_number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/BookType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/addBook"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Book"
+        app:layout_constraintTop_toBottomOf="@id/til_book_type"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="33dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
-
