@@ -18,33 +18,61 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ExtraText">
 
-        <com.google.android.material.textfield.MaterialAutoCompleteTextView
-            android:id="@+id/autoCompleteBooks"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:hint="Kitap Seç"
-            android:inputType="text"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:startIconDrawable="@drawable/search_asset"
+            app:endIconDrawable="@drawable/cancel_asset"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:id="@+id/til_SelectBookAutoComplate"
+            app:endIconMode="clear_text"
+            >
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/autoCompleteBooks"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
 
-        <com.google.android.material.textfield.MaterialAutoCompleteTextView
-            android:id="@+id/autoCompleteMember"
+                android:hint="Kitap Seç"
+                android:inputType="text"
 
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_SelectMemberAutoComplate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:hint="Üye Seç"
-            android:inputType="text"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/autoCompleteBooks"
-            />
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            app:startIconDrawable="@drawable/search_asset"
+            app:endIconDrawable="@drawable/cancel_asset"
+            app:endIconMode="clear_text"
+
+            >
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/autoCompleteMember"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:hint="Üye Seç"
+                android:inputType="text"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/autoCompleteBooks"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/rentBookButton"

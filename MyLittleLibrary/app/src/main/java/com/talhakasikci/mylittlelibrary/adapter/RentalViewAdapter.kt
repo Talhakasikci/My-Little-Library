@@ -40,14 +40,14 @@ class RentalViewAdapter(private val rentalViewModel:RentalViewModel):RecyclerVie
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         if(!rentList.isEmpty()){
             val rent = rentList[position]
-            holder.rentalId.text = rent.Rental_id.toString()
+            holder.rentalId.text = (holder.position+1).toString()
 
             rentalViewModel.getRentalDetails(rent.Rental_id).observeForever { rental ->
                 holder.userName.text = rental?.firstName ?: "Bilinmiyor"
                 holder.userSurname.text = rental?.lastName ?: "Bilinmiyor"
                 holder.bookName.text = rental?.bookName?: "Bilinmiyor"
                 holder.delteIcon.setOnClickListener {
-                    rentalViewModel.deleteRentalWithId(rent.Rental_id)
+                    rentalViewModel.deleteRentalWithId(rental.bookId!!,rent.Rental_id)
                 }
             }
         }

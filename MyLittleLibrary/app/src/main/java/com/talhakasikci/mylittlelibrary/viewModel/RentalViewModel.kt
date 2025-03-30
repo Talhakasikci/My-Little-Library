@@ -29,9 +29,9 @@ class RentalViewModel(application: Application) : AndroidViewModel(application) 
     fun getAllRentalDetails(): LiveData<List<RentalWithDetails>> {
         return rentalDao.getAllRentalDetails()
     }
-    fun deleteRentalWithId(bookId:Int){
+    fun deleteRentalWithId(bookId:Int,rentalId:Int){
         viewModelScope.launch(Dispatchers.IO) {
-            rentalDao.deleteRentalWithId(bookId)
+            rentalDao.deleteRentalWithId(rentalId)
             bookDao.returnBook(bookId)
         }
 

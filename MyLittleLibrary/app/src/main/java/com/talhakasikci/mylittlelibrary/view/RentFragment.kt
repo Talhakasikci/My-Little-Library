@@ -84,6 +84,8 @@ class RentFragment : Fragment() {
         }
 
         binding.rentBookButton.setOnClickListener {
+            binding.tilSelectBookAutoComplate.error = null
+            binding.tilSelectMemberAutoComplate.error = null
             val selectedBookName = binding.autoCompleteBooks.text.toString()
             val selectedMemberName = binding.autoCompleteMember.text.toString()
 
@@ -113,6 +115,11 @@ class RentFragment : Fragment() {
 
                 }
             } else {
+                if(bookId == null)
+                    binding.tilSelectBookAutoComplate.error = "Lütfen geçerli bir kitap giriniz"
+                if(memberID == null)
+                    binding.tilSelectMemberAutoComplate.error = "Lütfen geçerli bir Kullanıcı giriniz"
+
                 Toast.makeText(requireContext(), "Please select a valid member/book", Toast.LENGTH_SHORT).show()
             }
         }

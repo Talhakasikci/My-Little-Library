@@ -46,7 +46,7 @@ class BooksViewAdapter(private var onItemClick:(Int)->(Unit),private val bookVie
             return
         }
         val book = booksList[position]
-        holder.BookId.text = book.Book_Id.toString()
+        holder.BookId.text = (holder.position+1).toString()
         holder.BookName.text = book.Book_name
         holder.AuthorName.text = book.Author_name
         holder.AuthorSurname.text = book.Author_surname

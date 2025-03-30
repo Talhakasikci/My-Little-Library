@@ -41,7 +41,7 @@ class MembersViewAdapter(private val onItemClicked:(Int)->(Unit),private val Mem
 
     override fun onBindViewHolder(holder: MembersListViewHolder, position: Int) {
         val member = members[position]
-        holder.memberOrderTV.text = member.id.toString()
+        holder.memberOrderTV.text = (holder.position+1).toString()
         holder.memberNameTv.text = member.First_Name
         holder.memberSurnameTv.text = member.Last_Name
         holder.memberId.text = member.MemberID.toString()
