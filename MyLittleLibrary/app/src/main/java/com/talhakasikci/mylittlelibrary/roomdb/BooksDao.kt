@@ -5,6 +5,7 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Update
 import com.talhakasikci.mylittlelibrary.model.Books
 import com.talhakasikci.mylittlelibrary.model.BooksWithDetails
 
@@ -75,5 +76,9 @@ interface BooksDao {
 
     @Query("UPDATE Books SET available = 1 WHERE Book_Id = :bookid")
     suspend fun returnBook(bookid: Int)
+
+    @Update
+    suspend fun updateBook(book:Books)
+
 
 }

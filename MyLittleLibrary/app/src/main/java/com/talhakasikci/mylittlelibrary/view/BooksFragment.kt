@@ -38,6 +38,10 @@ class BooksFragment : Fragment() {
                           val action = BooksFragmentDirections.actionBooksFragmentToBookDetailsFragment(bookId)
                 findNavController().navigate(action)
             },
+            onEditClick = { bookId->
+                val action = BooksFragmentDirections.actionBooksFragmentToAddBookFragment(mode = "edit", bookId = bookId)
+                findNavController().navigate(action)
+            },
             bookViewModel = bookViewModel // ViewModel'i adapter'a geçiyoruz
         )
         recyclerView.layoutManager = LinearLayoutManager(requireContext())

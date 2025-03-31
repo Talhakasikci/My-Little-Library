@@ -14,7 +14,9 @@ import com.talhakasikci.mylittlelibrary.model.Books
 import com.talhakasikci.mylittlelibrary.model.BooksWithDetails
 import com.talhakasikci.mylittlelibrary.viewModel.BooksViewModel
 
-class BooksViewAdapter(private var onItemClick:(Int)->(Unit),private val bookViewModel:BooksViewModel): RecyclerView.Adapter<BooksViewAdapter.BooksListViewHolder>() {
+class BooksViewAdapter(private var onItemClick:(Int)->(Unit),
+                       private val onEditClick: (Int) -> Unit,
+                       private val bookViewModel:BooksViewModel): RecyclerView.Adapter<BooksViewAdapter.BooksListViewHolder>() {
     private var booksList = emptyList<BooksWithDetails>()
 
 
@@ -24,6 +26,7 @@ class BooksViewAdapter(private var onItemClick:(Int)->(Unit),private val bookVie
         val AuthorSurname:TextView = itemView.findViewById(R.id.tvAuthorSurname)
         val BookId:TextView = itemView.findViewById(R.id.tvNumberBook)
         val deleteIcon:ImageView = itemView.findViewById(R.id.ivDeleteButton)
+        val editButton:ImageView = itemView.findViewById(R.id.ivEditButton)
 
 
 }
@@ -52,6 +55,10 @@ class BooksViewAdapter(private var onItemClick:(Int)->(Unit),private val bookVie
         holder.AuthorSurname.text = book.Author_surname
         holder.deleteIcon.setOnClickListener {
             bookViewModel.BookDeleteWithId(bookId = book.Book_Id)
+
+        }
+        holder.editButton.setOnClickListener {
+            onEditClick(book.Book_Id)
 
         }
         holder.itemView.setOnClickListener {

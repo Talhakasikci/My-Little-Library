@@ -50,5 +50,11 @@ class BooksViewModel(application:Application):AndroidViewModel(application) {
         }
     }
 
+    fun updateBook(book:Books){
+        viewModelScope.launch(Dispatchers.IO) {
+            booksDao.updateBook(book)
+        }
+    }
+
 
 }

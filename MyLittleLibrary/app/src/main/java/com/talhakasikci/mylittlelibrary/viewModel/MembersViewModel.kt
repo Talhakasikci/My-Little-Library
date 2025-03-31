@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
+import com.talhakasikci.mylittlelibrary.model.Books
 import com.talhakasikci.mylittlelibrary.model.BooksWithDetails
 import com.talhakasikci.mylittlelibrary.model.Members
 import com.talhakasikci.mylittlelibrary.roomdb.BooksDB
@@ -34,12 +35,21 @@ class MembersViewModel(application: Application) : AndroidViewModel(application)
         }
     }
 
-    suspend fun getMemberWithID(id:Long): Int? {
+    suspend fun getMemberWithID(id:Int): Int? {
        return membersDao.getMember(id)
 
 
     }
     fun getMemberDetails(id:Int):LiveData<List<Members>>{
         return membersDao.getMemberDetails(id)
+    }
+    fun updateMember(member: Members){
+        viewModelScope.launch(Dispatchers.IO) {
+            membersDao.updateMember(member)
+        }
+    }
+
+    suspend fun getMemberWithMemberID(memberID: Long): Int? {
+        return membersDao.getMemberWithMemberId(memberID)
     }
 }

@@ -12,7 +12,9 @@ import com.talhakasikci.mylittlelibrary.model.Members
 import com.talhakasikci.mylittlelibrary.viewModel.BooksViewModel
 import com.talhakasikci.mylittlelibrary.viewModel.MembersViewModel
 
-class MembersViewAdapter(private val onItemClicked:(Int)->(Unit),private val MembersViewModel: MembersViewModel) :RecyclerView.Adapter<MembersViewAdapter.MembersListViewHolder>() {
+class MembersViewAdapter(private val onItemClicked:(Int)->(Unit),
+                         private val onEditClick: (Int) -> Unit,
+                         private val MembersViewModel: MembersViewModel) :RecyclerView.Adapter<MembersViewAdapter.MembersListViewHolder>() {
     private var members = emptyList<Members>()
 
 
@@ -47,6 +49,9 @@ class MembersViewAdapter(private val onItemClicked:(Int)->(Unit),private val Mem
         holder.memberId.text = member.MemberID.toString()
         holder.deleteimg.setOnClickListener {
             MembersViewModel.membersDeleteWithId(member.id)
+        }
+        holder.editImg.setOnClickListener {
+            onEditClick(member.id)
         }
         holder.itemView.setOnClickListener {
             Toast.makeText(holder.itemView.context,"clicked ${member.id}",Toast.LENGTH_SHORT).show()

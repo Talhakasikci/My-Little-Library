@@ -34,11 +34,17 @@ class MembersFragment : Fragment() {
 
 
         val recyclerView:RecyclerView = binding.rvMember
-        adapter = MembersViewAdapter(onItemClicked = {memberId->
+        adapter = MembersViewAdapter(
+            onItemClicked = {memberId->
           val action = MembersFragmentDirections.actionMembersFragmentToMemberDetailsFragment(memberId)
           findNavController().navigate(action)
 
-        }
+        },
+            onEditClick = {memberId->
+                val action = MembersFragmentDirections.actionMembersFragmentToAddMemberFragment("edit",memberId)
+                findNavController().navigate(action)
+
+            }
             ,MembersViewModel = memberViewModel)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = adapter

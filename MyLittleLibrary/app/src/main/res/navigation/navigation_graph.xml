@@ -62,12 +62,30 @@
         android:id="@+id/addBookFragment"
         android:name="com.talhakasikci.mylittlelibrary.view.AddBookFragment"
         android:label="fragment_add_book"
-        tools:layout="@layout/fragment_add_book" />
+        tools:layout="@layout/fragment_add_book" >
+        <argument
+            android:name="mode"
+            app:argType="string"
+            android:defaultValue="add" />
+        <argument
+            android:name="bookId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
     <fragment
         android:id="@+id/addMemberFragment"
         android:name="com.talhakasikci.mylittlelibrary.view.AddMemberFragment"
         android:label="fragment_add_member"
-        tools:layout="@layout/fragment_add_member" />
+        tools:layout="@layout/fragment_add_member" >
+        <argument
+            android:name="mode"
+            app:argType="string"
+            android:defaultValue="add" />
+        <argument
+            android:name="memberId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
     <fragment
         android:id="@+id/booksFragment"
         android:name="com.talhakasikci.mylittlelibrary.view.BooksFragment"

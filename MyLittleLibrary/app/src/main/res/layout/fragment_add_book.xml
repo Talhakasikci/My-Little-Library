@@ -19,7 +19,11 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="50dp">
+        android:layout_marginTop="50dp"
+        app:shapeAppearanceOverlay="@style/customTextInputShape"
+
+        app:endIconMode="clear_text"
+        >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/BookName"
@@ -38,7 +42,9 @@
         app:layout_constraintTop_toBottomOf="@id/til_book_name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="20dp"
+        app:shapeAppearanceOverlay="@style/customTextInputShape"
+        app:endIconMode="clear_text">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/AuthorName"
@@ -57,7 +63,9 @@
         app:layout_constraintTop_toBottomOf="@id/til_author_name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="20dp"
+        app:shapeAppearanceOverlay="@style/customTextInputShape"
+        app:endIconMode="clear_text">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/authorSurname"
@@ -76,7 +84,9 @@
         app:layout_constraintTop_toBottomOf="@id/til_author_surname"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="20dp"
+        app:shapeAppearanceOverlay="@style/customTextInputShape"
+        app:endIconMode="clear_text">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/BookYear"
@@ -95,7 +105,9 @@
         app:layout_constraintTop_toBottomOf="@id/til_book_year"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="20dp"
+        app:shapeAppearanceOverlay="@style/customTextInputShape"
+        app:endIconMode="clear_text">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/ISBNnumber"
@@ -114,7 +126,9 @@
         app:layout_constraintTop_toBottomOf="@id/til_isbn_number"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="20dp"
+        app:shapeAppearanceOverlay="@style/customTextInputShape"
+        app:endIconMode="clear_text">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/BookType"
@@ -134,4 +148,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="33dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/editBook"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Edit Book"
+        app:layout_constraintTop_toBottomOf="@id/addBook"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"
+        android:layout_marginTop="33dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
